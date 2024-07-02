@@ -112,6 +112,6 @@ demo2 = gr.Interface(proc_batch, gr.Gallery(), [gr.Gallery(value='str', format='
 demo = gr.TabbedInterface([demo1, demo2], ["Single image processing", "Batch processing (experimental)"])
 
 if __name__ == "__main__":
-    demo.launch(server_name='0.0.0.0', server_port=7860)
+    demo.launch(share=True)
 
 
