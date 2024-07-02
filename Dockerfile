@@ -46,8 +46,6 @@ RUN mkdir "/home/$USERNAME/gradio_app"
 COPY gradio_app "/home/$USERNAME/gradio_app"
 COPY entrypoint.sh "/home/$USERNAME/"
 
-EXPOSE 7860
-
 
 ENTRYPOINT ["/bin/bash", "/home/user/entrypoint.sh"]
 
