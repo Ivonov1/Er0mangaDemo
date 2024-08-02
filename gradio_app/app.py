@@ -81,12 +81,13 @@ def proc_batch(batch):
             input_path = batch[i][0]
             inp_name = os.path.basename(input_path)
             input_img = cv2.cvtColor(cv2.imread(input_path), cv2.COLOR_BGR2RGB)
-
+            input_img = 255 - input_img #invert image to turn white bars to black
             out_mask, raw_mask = inference_tta(model_seg, input_img)
             out_mask = np.dstack([out_mask, out_mask, out_mask])
             raw_mask = np.dstack([raw_mask, raw_mask, raw_mask])
 
             output_img, out_dbg = inpaint(model_inp, input_img, out_mask)
+            output_img = 255 - output_img #invert image
             out_path_img = os.path.join(out_p_d, inp_name)
             out_path_mask = os.path.join(out_p_m, inp_name+'.png')
             cv2.imwrite(out_path_img, cv2.cvtColor(output_img, cv2.COLOR_BGR2RGB))
