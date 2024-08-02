@@ -68,7 +68,9 @@ def proc_batch(batch):
 
         s = time.time()
 
-        out_p = os.path.dirname(batch[0][0])
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        out_p = script_dir
         salt = str(np.random.randint(1e10))
         out_p_d = os.path.join(out_p, '__salt_img__'+salt)
         out_p_m = os.path.join(out_p, '__salt_mask__'+salt)
@@ -112,6 +114,6 @@ demo2 = gr.Interface(proc_batch, gr.Gallery(), [gr.Gallery(value='str', format='
 demo = gr.TabbedInterface([demo1, demo2], ["Single image processing", "Batch processing (experimental)"])
 
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch(server_name='0.0.0.0', server_port=8080, share=True)
 
 
