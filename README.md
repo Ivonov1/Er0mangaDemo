@@ -48,7 +48,7 @@ Notice that you can run `docker run --rm -it -p 8080:8080 --entrypoint /bin/bash
 
 to modify file system of docker image as root:
 
-`docker run -it -u root -p 8080:8080 --entrypoint /bin/bash akittles20p/er0mangademo`
+`docker run -it -u root -p 8080:8080 --entrypoint /bin/bash skittles20p/er0mangademo`
 
 ## The links to the repos that do the processing:
 
